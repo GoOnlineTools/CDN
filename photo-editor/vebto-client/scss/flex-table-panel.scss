@@ -1,0 +1,95 @@
+@import "variables";
+
+.admin-table-panel {
+  position: relative;
+  border: 1px solid $site-border-color-200;
+  margin: 25px;
+  background-color: #fff;
+  border-radius: 3px;
+
+  .admin-table-panel-header {
+    > .header-inner {
+      display: flex;
+      align-items: center;
+      height: $table-panel-header-height;
+      padding: 0 $table-panel-header-padding;
+      border-bottom: 1px solid transparent;
+      overflow: hidden;
+
+      &.selected {
+        background-color: $table-panel-active-header-background-color;
+        color: $table-panel-active-header-text-color;
+        font-size: $table-panel-active-header-font-size;
+        border-color: $site-border-color-200;
+
+        > .right {
+          > button {
+            margin: 0 4px;
+            border: 1px solid $site-border-color-200;
+            border-radius: 3px;
+            padding: 0 8px;
+            vertical-align: middle;
+          }
+        }
+      }
+
+      > .left {
+        flex: 0 0 50%;
+
+        > .title {
+          font-size: 1.8rem;
+          color: #676a6c;
+        }
+      }
+
+      > .right {
+        flex: 0 0 50%;
+        display: flex;
+        justify-content: flex-end;
+
+        > .input-container {
+          max-width: 300px;
+          position: relative;
+
+          > input {
+            font-weight: 400;
+          }
+
+          > svg-icon {
+            position: absolute;
+            top: 8px;
+            right: 5px;
+          }
+        }
+      }
+    }
+  }
+
+  .mat-table {
+    .mat-column-avatar, .mat-column-image {
+      flex: 0 0 60px;
+      margin: 0 35px 0 25px;
+
+      > img {
+        width: 35px;
+        height: 35px;
+        object-fit: cover;
+      }
+    }
+
+    .mat-column-select {
+      overflow: initial;
+      flex: 0 0 50px;
+      margin-left: 10px;
+    }
+
+    .mat-column-edit {
+      flex: 0 0 50px;
+      color: $site-text-color-300;
+    }
+  }
+
+  no-results-message {
+    margin: 65px 0;
+  }
+}

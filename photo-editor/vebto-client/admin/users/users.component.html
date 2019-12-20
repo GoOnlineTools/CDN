@@ -1,0 +1,96 @@
+<div class="admin-table-panel">
+    <div class="admin-table-panel-header">
+        <div class="header-inner default" *ngIf="dataSource.selectedRows.isEmpty()">
+            <div class="left">
+                <button mat-raised-button color="accent" (click)="showCrupdateUserModal()" *ngIf="currentUser.hasPermission('users.create')" trans>Add</button>
+            </div>
+
+            <div class="right">
+                <div class="input-container">
+                    <input type="text" class="search" placeholder="Search users" trans-placeholder [formControl]="dataSource.searchQuery">
+                    <svg-icon name="search"></svg-icon>
+                </div>
+            </div>
+        </div>
+
+        <div class="header-inner selected" *ngIf="dataSource.selectedRows.hasValue()">
+            <div class="left">{{dataSource.selectedRows.selected.length}} <span trans>Users Selected</span></div>
+            <div class="right">
+                <button mat-icon-button matTooltip="Delete selected" (click)="maybeDeleteSelectedUsers()" *ngIf="currentUser.hasPermission('users.delete')">
+                    <svg-icon name="delete"></svg-icon>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <mat-table [dataSource]="dataSource" matSort>
+        <ng-container matColumnDef="select">
+            <mat-header-cell *matHeaderCellDef>
+                <mat-checkbox (change)="$event ? dataSource.masterToggle() : null"
+                              [checked]="dataSource.selectedRows.hasValue() && dataSource.isAllSelected()"
+                              [indeterminate]="dataSource.selectedRows.hasValue() && !dataSource.isAllSelected()">
+                </mat-checkbox>
+            </mat-header-cell>
+            <mat-cell *matCellDef="let row">
+                <mat-checkbox (click)="$event.stopPropagation()"
+                              (change)="$event ? dataSource.selectedRows.toggle(row) : null"
+                              [checked]="dataSource.selectedRows.isSelected(row)">
+                </mat-checkbox>
+            </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="avatar">
+            <mat-header-cell *matHeaderCellDef trans>Avatar</mat-header-cell>
+            <mat-cell *matCellDef="let user"> <img [src]="user.avatar"> </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="email">
+            <mat-header-cell *matHeaderCellDef mat-sort-header trans>Email</mat-header-cell>
+            <mat-cell *matCellDef="let user"> {{user.email}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="subscribed">
+            <mat-header-cell *matHeaderCellDef trans>Subscribed</mat-header-cell>
+            <mat-cell *matCellDef="let user"> {{user.is_subscribed ? 'Yes' : 'No'}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="groups">
+            <mat-header-cell *matHeaderCellDef trans>Groups</mat-header-cell>
+            <mat-cell *matCellDef="let user"> {{makeGroupsList(user.groups)}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="permissions">
+            <mat-header-cell *matHeaderCellDef trans>Permissions</mat-header-cell>
+            <mat-cell *matCellDef="let user"> {{makePermissionsList(user.permissions)}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="first_name">
+            <mat-header-cell *matHeaderCellDef mat-sort-header trans>First Name</mat-header-cell>
+            <mat-cell *matCellDef="let user"> {{user.first_name}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="last_name">
+            <mat-header-cell *matHeaderCellDef mat-sort-header trans>Last Name</mat-header-cell>
+            <mat-cell *matCellDef="let user"> {{user.last_name}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="edit">
+            <mat-header-cell *matHeaderCellDef></mat-header-cell>
+            <mat-cell *matCellDef="let user">
+                <button mat-icon-button (click)="showCrupdateUserModal(user)" *ngIf="currentUser.hasPermission('users.update')" matTooltip="Edit user">
+                    <svg-icon name="edit"></svg-icon>
+                </button>
+            </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="getTableRows()"></mat-header-row>
+        <mat-row *matRowDef="let myRowData; columns: getTableRows()"></mat-row>
+    </mat-table>
+
+    <no-results-message *ngIf="dataSource.isEmpty()">
+        <span primary-text trans>Nothing To Display.</span>
+        <span secondary-text trans>Seems like no users have been created yet.</span>
+    </no-results-message>
+
+    <mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20]"></mat-paginator>
+</div>

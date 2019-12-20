@@ -1,0 +1,63 @@
+{
+  "_args": [
+    [
+      "@types/fabric@1.5.31",
+      "/mnt/e/apps/pixie2"
+    ]
+  ],
+  "_development": true,
+  "_from": "@types/fabric@1.5.31",
+  "_id": "@types/fabric@1.5.31",
+  "_inBundle": false,
+  "_integrity": "sha512-Pj2Fp4+btc0XHfDPIwrT0lSiP4m3JIJZ+/Oxo5ROSIpvaDpjadxwL3JzyMWKdVw9V+yKXjDjV08uxRvaHxd7tA==",
+  "_location": "/@types/fabric",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "@types/fabric@1.5.31",
+    "name": "@types/fabric",
+    "escapedName": "@types%2ffabric",
+    "scope": "@types",
+    "rawSpec": "1.5.31",
+    "saveSpec": null,
+    "fetchSpec": "1.5.31"
+  },
+  "_requiredBy": [
+    "#DEV:/"
+  ],
+  "_resolved": "https://registry.npmjs.org/@types/fabric/-/fabric-1.5.31.tgz",
+  "_spec": "1.5.31",
+  "_where": "/mnt/e/apps/pixie2",
+  "contributors": [
+    {
+      "name": "Oliver Klemencic",
+      "url": "https://github.com/oklemencic"
+    },
+    {
+      "name": "Joseph Livecchi",
+      "url": "https://github.com/joewashear007"
+    },
+    {
+      "name": "Michael Randolph",
+      "url": "https://github.com/mrand01"
+    },
+    {
+      "name": "Tiger Oakes",
+      "url": "https://github.com/NotWoods"
+    }
+  ],
+  "dependencies": {},
+  "description": "TypeScript definitions for FabricJS",
+  "license": "MIT",
+  "main": "",
+  "name": "@types/fabric",
+  "repository": {
+    "type": "git",
+    "url": "https://www.github.com/DefinitelyTyped/DefinitelyTyped.git"
+  },
+  "scripts": {},
+  "typeScriptVersion": "2.1",
+  "typesPublisherContentHash": "0bc3b6f5d105237eab3646a1a1b91095e94ab4553507a5573c262745a34bb696",
+  "version": "1.5.31"
+}

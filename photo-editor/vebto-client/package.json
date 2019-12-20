@@ -1,0 +1,55 @@
+{
+  "_args": [
+    [
+      "git+ssh://git@bitbucket.org/vebtolabs/vebto-client.git",
+      "/mnt/e/apps/pixie2"
+    ]
+  ],
+  "_from": "git+ssh://git@bitbucket.org/vebtolabs/vebto-client.git",
+  "_id": "vebto-client@git+ssh://git@bitbucket.org/vebtolabs/vebto-client.git#9a90bb0de66a199f89192656f9404d3f27179a86",
+  "_inBundle": false,
+  "_integrity": "",
+  "_location": "/vebto-client",
+  "_phantomChildren": {
+    "symbol-observable": "1.0.1",
+    "tslib": "1.9.0"
+  },
+  "_requested": {
+    "type": "git",
+    "raw": "git+ssh://git@bitbucket.org/vebtolabs/vebto-client.git",
+    "rawSpec": "git+ssh://git@bitbucket.org/vebtolabs/vebto-client.git",
+    "saveSpec": "git+ssh://git@bitbucket.org/vebtolabs/vebto-client.git",
+    "fetchSpec": "ssh://git@bitbucket.org/vebtolabs/vebto-client.git",
+    "gitCommittish": null
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "git+ssh://git@bitbucket.org/vebtolabs/vebto-client.git#9a90bb0de66a199f89192656f9404d3f27179a86",
+  "_spec": "git+ssh://git@bitbucket.org/vebtolabs/vebto-client.git",
+  "_where": "/mnt/e/apps/pixie2",
+  "devDependencies": {
+    "@types/chart.js": "^2.7.18",
+    "@types/deepmerge": "^2.1.0",
+    "@types/dot-object": "^1.5.0",
+    "@types/stripe-v3": "^3.0.7"
+  },
+  "name": "vebto-client",
+  "peerDependencies": {
+    "@angular/common": "^6.0.0",
+    "@angular/core": "^6.0.0",
+    "@angular/material": "^6.0.1",
+    "@angular/cdk": "^6.0.1",
+    "deep-merge": "^1.0.0",
+    "dot-object": "^1.7.0",
+    "hammerjs": "^2.0.8",
+    "ngx-color-picker": "^6.0.0",
+    "perfect-scrollbar": "^1.3.0",
+    "rxjs": "^6.0.0",
+    "raven-js": "^3.25.1",
+    "sortablejs": "^1.7.0",
+    "moment": "^2.22.1",
+    "chart.js": "^2.7.2"
+  },
+  "version": "0.0.1"
+}

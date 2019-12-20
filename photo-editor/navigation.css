@@ -1,0 +1,43 @@
+body {
+  background: #fff;
+  padding-top: 40px;
+  margin: 0;
+}
+
+header {
+  background: #1976d2;
+  height: 50px;
+  position: fixed;
+  top: 0;
+  transition: top 0.2s ease-in-out;
+  width: 100%;
+  text-align: center;
+}
+
+header li {
+  list-style: none;
+  display: inline-block;
+}
+
+header a {
+  color: #fff;
+  text-decoration: none;
+  padding: 0 15px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.nav-up {
+  top: -50px;
+}
+
+main {
+  height: 2000px;
+}
+
+footer { 
+  background: #ddd;
+  height: 45px;
+  line-height: 45px;
+  text-align: center;
+}

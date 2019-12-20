@@ -1,0 +1,81 @@
+<div class="admin-table-panel">
+    <div class="admin-table-panel-header">
+        <div class="header-inner default" *ngIf="dataSource.selectedRows.isEmpty()">
+            <div class="left">
+                <a routerLink="new" mat-raised-button color="accent" *ngIf="currentUser.hasPermission('pages.create')" trans>Add</a>
+            </div>
+
+            <div class="right">
+                <div class="input-container">
+                    <input type="text" class="search" placeholder="Search pages" trans-placeholder [formControl]="dataSource.searchQuery">
+                    <svg-icon name="search"></svg-icon>
+                </div>
+            </div>
+        </div>
+
+        <div class="header-inner selected" *ngIf="dataSource.selectedRows.hasValue()">
+            <div class="left">{{dataSource.selectedRows.selected.length}} <span trans>Pages Selected</span></div>
+            <div class="right">
+                <button mat-icon-button matTooltip="Delete selected" (click)="maybeDeleteSelectedPages()" *ngIf="currentUser.hasPermission('pages.delete')">
+                    <svg-icon name="delete"></svg-icon>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <mat-table [dataSource]="dataSource" matSort>
+        <ng-container matColumnDef="select">
+            <mat-header-cell *matHeaderCellDef>
+                <mat-checkbox (change)="$event ? dataSource.masterToggle() : null"
+                              [checked]="dataSource.selectedRows.hasValue() && dataSource.isAllSelected()"
+                              [indeterminate]="dataSource.selectedRows.hasValue() && !dataSource.isAllSelected()">
+                </mat-checkbox>
+            </mat-header-cell>
+            <mat-cell *matCellDef="let row">
+                <mat-checkbox (click)="$event.stopPropagation()"
+                              (change)="$event ? dataSource.selectedRows.toggle(row) : null"
+                              [checked]="dataSource.selectedRows.isSelected(row)">
+                </mat-checkbox>
+            </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="slug">
+            <mat-header-cell *matHeaderCellDef mat-sort-header trans>Slug</mat-header-cell>
+            <mat-cell *matCellDef="let page"> {{page.slug}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="body">
+            <mat-header-cell *matHeaderCellDef trans>Body</mat-header-cell>
+            <mat-cell *matCellDef="let page"> {{page.body}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="created_at">
+            <mat-header-cell *matHeaderCellDef trans>Created At</mat-header-cell>
+            <mat-cell *matCellDef="let page"> {{page.created_at | formattedDate}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="updated_at">
+            <mat-header-cell *matHeaderCellDef trans>Last Updated</mat-header-cell>
+            <mat-cell *matCellDef="let page"> {{page.updated_at | formattedDate}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="edit">
+            <mat-header-cell *matHeaderCellDef></mat-header-cell>
+            <mat-cell *matCellDef="let page">
+                <a [routerLink]="[page.id, 'edit']" mat-icon-button *ngIf="currentUser.hasPermission('pages.update')" matTooltip="Edit page">
+                    <svg-icon name="edit"></svg-icon>
+                </a>
+            </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="['select', 'slug', 'body', 'created_at', 'updated_at', 'edit']"></mat-header-row>
+        <mat-row *matRowDef="let myRowData; columns: ['select', 'slug', 'body', 'created_at', 'updated_at', 'edit']"></mat-row>
+    </mat-table>
+
+    <no-results-message *ngIf="dataSource.isEmpty()">
+        <span primary-text trans>Nothing To Display.</span>
+        <span secondary-text trans>Seems like no pages have been created yet.</span>
+    </no-results-message>
+
+    <mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20]"></mat-paginator>
+</div>
