@@ -4,7 +4,7 @@
   +   '<textarea id="js_lua_code" placeholder="Paste and Ctrl + Enter to beautify"></textarea>'
   + '</div>'
   + '<div>'
-  +   '<button id="js_lua_beautify">Beautify</button>'
+  +   '<button id="js_lua_beautify">Beautify Code (Ctrl + Enter)</button>'
   + '</div>'
   ;
 
