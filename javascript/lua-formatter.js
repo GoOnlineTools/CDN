@@ -1,9 +1,6 @@
 -function() {
    document.getElementById('ext').innerHTML =
-    '<div>'
-  +   '<h1>Minimalist Lua beautifier</h1>'
-  + '</div>'
-  + '<div class="box-js-lua-code">'
+    '<div class="box-js-lua-code">'
   +   '<textarea id="js_lua_code" placeholder="Paste and Ctrl + Enter to beautify"></textarea>'
   + '</div>'
   + '<div>'
