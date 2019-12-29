@@ -1,5 +1,5 @@
 -function() {
-  document.body.innerHTML =
+  document.ext-component.innerHTML =
     '<div>'
   +   '<h1>Minimalist Lua beautifier</h1>'
   + '</div>'
