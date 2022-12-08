@@ -1,0 +1,25 @@
+{
+  "version": "1",
+  "name": "Photo Editor",
+  "launch_path": "/edit.html",
+  "description": "Photo Editor is the best free advanced photo editing tool.",
+  "icons": {
+    "16": "/kaios-hosted-sample/images/logo16.png",
+    "32": "/kaios-hosted-sample/images/logo32.png",
+    "48": "/kaios-hosted-sample/images/logo48.png",
+    "60": "/kaios-hosted-sample/images/logo60.png",
+    "64": "/kaios-hosted-sample/images/logo64.png",
+    "90": "/kaios-hosted-sample/images/logo90.png",
+    "120": "/kaios-hosted-sample/images/logo120.png",
+    "128": "/kaios-hosted-sample/images/logo128.png"
+  },
+  "developer": {
+    "name": "Rahul",
+    "url": "https://goonlinetools.com/"
+  },
+  "installs_allowed_from": [
+    "*"
+  ],
+  "default_locale": "en",
+  "cursor": true
+}
